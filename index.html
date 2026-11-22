@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spinverse - Slot Game</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle, #292015, #080808 75%);
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game {
+    width: 100%;
+    max-width: 440px;
+    background: linear-gradient(145deg, #24201a, #090909);
+    border: 2px solid #c99b38;
+    border-radius: 22px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 35px #b9872940;
+}
+
+h1 {
+    color: #ffd66b;
+    font-size: 38px;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.balance {
+    background: #151515;
+    border: 1px solid #806025;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+
+.balance small {
+    color: #aaa;
+}
+
+.balance h2 {
+    color: #ffd66b;
+    margin-top: 5px;
+    font-size: 28px;
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.reel {
+    width: 95px;
+    height: 105px;
+    background: linear-gradient(#fff8dc, #d9c28a);
+    border: 4px solid #c99b38;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    box-shadow: inset 0 0 12px #8b682d;
+}
+
+.bet {
+    margin: 20px 0;
+    color: #ddd;
+}
+
+.bet button {
+    background: #292929;
+    color: white;
+    border: 1px solid #c99b38;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.spin {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffe08a, #b47b19);
+    color: #17100a;
+    font-size: 19px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #b9872950;
+}
+
+.spin:hover {
+    filter: brightness(1.15);
+}
+
+.spin:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+#message {
+    margin-top: 22px;
+    min-height: 24px;
+    color: #ffd66b;
+    font-weight: bold;
+}
+
+.note {
+    color: #777;
+    font-size: 11px;
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="game">
+
+    <h1>SPINVERSE</h1>
+    <p class="subtitle">THE ULTIMATE SLOT EXPERIENCE</p>
+
+    <div class="balance">
+        <small>YOUR VIRTUAL CREDITS</small>
+        <h2 id="balance">1000</h2>
+    </div>
+
+    <div class="reels">
+        <div class="reel" id="reel1">🍒</div>
+        <div class="reel" id="reel2">🍋</div>
+        <div class="reel" id="reel3">💎</div>
+    </div>
+
+    <div class="bet">
+        BET:
+        <button onclick="changeBet(-10)">-</button>
+        <strong id="bet">50</strong>
+        <button onclick="changeBet(10)">+</button>
+    </div>
+
+    <button class="spin" id="spinButton" onclick="spin()">
+        SPIN
+    </button>
+
+    <div id="message">GOOD LUCK!</div>
+
+    <p class="note">
+        DEMO GAME - VIRTUAL CREDITS ONLY
+    </p>
+
+</div>
+
+<script>
+let balance = 1000;
+let bet = 50;
+let spinning = false;
+
+const symbols = ["🍒", "🍋", "🍊", "⭐", "💎", "7️⃣"];
+
+function updateDisplay() {
+    document.getElementById("balance").textContent = balance;
+    document.getElementById("bet").textContent = bet;
+}
+
+function changeBet(amount) {
+    if (spinning) return;
+
+    bet = Math.max(10, Math.min(200, bet + amount));
+    updateDisplay();
+}
+
+function spin() {
+    if (spinning) return;
+
+    if (balance < bet) {
+        document.getElementById("message").textContent =
+            "NOT ENOUGH VIRTUAL CREDITS!";
+        return;
+    }
+
+    spinning = true;
+    balance -= bet;
+    updateDisplay();
+
+    document.getElementById("spinButton").disabled = true;
+    document.getElementById("message").textContent = "SPINNING...";
+
+    let reels = [
+        document.getElementById("reel1"),
+        document.getElementById("reel2"),
+        document.getElementById("reel3")
+    ];
+
+    let finalResults = reels.map(() =>
+        symbols[Math.floor(Math.random() * symbols.length)]
+    );
+
+    let count = 0;
+
+    let animation = setInterval(() => {
+        reels.forEach(reel => {
+            reel.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+        });
+
+        count++;
+
+        if (count >= 15) {
+            clearInterval(animation);
+
+            reels.forEach((reel, index) => {
+                reel.textContent = finalResults[index];
+            });
+
+            checkWin(finalResults);
+        }
+    }, 100);
+}
+
+function checkWin(results) {
+    let message = "TRY AGAIN!";
+
+    if (results[0] === results[1] &&
+        results[1] === results[2]) {
+
+        balance += bet * 10;
+        message = "🎉 JACKPOT! 10X WIN!";
+    }
+    else if (
+        results[0] === results[1] ||
+        results[1] === results[2] ||
+        results[0] === results[2]
+    ) {
+        balance += bet * 2;
+        message = "✨ NICE! 2X WIN!";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    updateDisplay();
+
+    spinning = false;
+    document.getElementById("spinButton").disabled = false;
+}
+</script>
+
+</body>
+</html>
