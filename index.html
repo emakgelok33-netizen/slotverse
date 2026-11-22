@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spinverse - Slot Game</title>
+<title>SPINVERSE | Premium Gaming</title>
 
 <style>
 * {
@@ -14,260 +14,420 @@
 }
 
 body {
-    background: radial-gradient(circle, #292015, #080808 75%);
-    color: white;
+    background: #080808;
+    color: #fff;
     font-family: Arial, sans-serif;
-    min-height: 100vh;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 78px;
+    background: #090909;
+    border-bottom: 1px solid #a87924;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.game {
-    width: 100%;
-    max-width: 440px;
-    background: linear-gradient(145deg, #24201a, #090909);
-    border: 2px solid #c99b38;
-    border-radius: 22px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 0 35px #b9872940;
+.logo {
+    color: #ffd36b;
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-h1 {
-    color: #ffd66b;
-    font-size: 38px;
-    letter-spacing: 4px;
-    margin-bottom: 8px;
-}
-
-.subtitle {
-    color: #aaa;
-    font-size: 12px;
-    margin-bottom: 25px;
-}
-
-.balance {
-    background: #151515;
-    border: 1px solid #806025;
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 25px;
-}
-
-.balance small {
-    color: #aaa;
-}
-
-.balance h2 {
-    color: #ffd66b;
-    margin-top: 5px;
-    font-size: 28px;
-}
-
-.reels {
+nav {
     display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
+    gap: 30px;
 }
 
-.reel {
-    width: 95px;
-    height: 105px;
-    background: linear-gradient(#fff8dc, #d9c28a);
-    border: 4px solid #c99b38;
-    border-radius: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    box-shadow: inset 0 0 12px #8b682d;
-}
-
-.bet {
-    margin: 20px 0;
+nav a {
     color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
 }
 
-.bet button {
-    background: #292929;
-    color: white;
-    border: 1px solid #c99b38;
-    padding: 8px 16px;
-    border-radius: 8px;
-    margin: 0 8px;
-    cursor: pointer;
+nav a:hover {
+    color: #ffd36b;
 }
 
-.spin {
-    width: 100%;
-    padding: 16px;
+.header-btn {
+    background: linear-gradient(135deg,#ffe38b,#c58a22);
     border: none;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #ffe08a, #b47b19);
-    color: #17100a;
-    font-size: 19px;
+    padding: 12px 23px;
+    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 5px 20px #b9872950;
 }
 
-.spin:hover {
-    filter: brightness(1.15);
+.hero {
+    min-height: 410px;
+    padding: 65px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background:
+    radial-gradient(ellipse at 75% 50%,#61400e 0%,transparent 55%),
+    linear-gradient(120deg,#100d08,#080808);
+    border-bottom: 1px solid #a87924;
 }
 
-.spin:disabled {
-    opacity: .5;
-    cursor: not-allowed;
+.hero-content {
+    max-width: 650px;
 }
 
-#message {
-    margin-top: 22px;
-    min-height: 24px;
-    color: #ffd66b;
+.tag {
+    color: #ffd36b;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,7vw,75px);
+    line-height: 1.05;
+    color: #ffda7d;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    color: #bbb;
+    line-height: 1.8;
+    max-width: 480px;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: linear-gradient(135deg,#ffe38b,#bd8019);
+    padding: 16px 32px;
+    color: #171008;
+    text-decoration: none;
+    border-radius: 9px;
     font-weight: bold;
 }
 
-.note {
-    color: #777;
+.hero-art {
+    font-size: 150px;
+    filter: drop-shadow(0 0 35px #d69c35);
+}
+
+.section {
+    padding: 55px 5%;
+}
+
+.section-title {
+    text-align: center;
+    color: #ffda7d;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.section-desc {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.game-card {
+    background: linear-gradient(145deg,#24211b,#0d0d0d);
+    border: 1px solid #76541d;
+    border-radius: 15px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.game-card:hover {
+    transform: translateY(-7px);
+    border-color: #ffd36b;
+    box-shadow: 0 0 22px #d59b3530;
+}
+
+.game-icon {
+    font-size: 58px;
+    margin-bottom: 18px;
+}
+
+.game-card h3 {
+    color: #ffdc88;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: #999;
+    font-size: 12px;
+    min-height: 35px;
+    line-height: 1.5;
+}
+
+.play-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: linear-gradient(135deg,#ffe38b,#bd8019);
+    color: #15100a;
+    padding: 11px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    background: #12110e;
+    border: 1px solid #614619;
+    border-radius: 15px;
+    padding: 28px;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature h4 {
+    color: #ffda7d;
+    font-size: 13px;
+}
+
+.feature p {
+    color: #888;
     font-size: 11px;
-    margin-top: 25px;
+    margin-top: 7px;
+}
+
+.notice {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 35px;
+}
+
+footer {
+    border-top: 1px solid #65491b;
+    text-align: center;
+    padding: 28px 15px;
+    color: #777;
+    font-size: 12px;
+}
+
+footer strong {
+    color: #e7bd64;
+}
+
+@media(max-width:850px) {
+    nav {
+        display: none;
+    }
+
+    .games {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero-art {
+        font-size: 90px;
+    }
+}
+
+@media(max-width:500px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header-btn {
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+
+    .hero {
+        text-align: center;
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .hero-art {
+        font-size: 90px;
+    }
+
+    .games {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="game">
+<header>
+    <div class="logo">♛ SPINVERSE</div>
 
-    <h1>SPINVERSE</h1>
-    <p class="subtitle">THE ULTIMATE SLOT EXPERIENCE</p>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#games">Games</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+    </nav>
 
-    <div class="balance">
-        <small>YOUR VIRTUAL CREDITS</small>
-        <h2 id="balance">1000</h2>
-    </div>
-
-    <div class="reels">
-        <div class="reel" id="reel1">🍒</div>
-        <div class="reel" id="reel2">🍋</div>
-        <div class="reel" id="reel3">💎</div>
-    </div>
-
-    <div class="bet">
-        BET:
-        <button onclick="changeBet(-10)">-</button>
-        <strong id="bet">50</strong>
-        <button onclick="changeBet(10)">+</button>
-    </div>
-
-    <button class="spin" id="spinButton" onclick="spin()">
-        SPIN
+    <button class="header-btn"
+    onclick="location.href='game.html'">
+    PLAY DEMO
     </button>
+</header>
 
-    <div id="message">GOOD LUCK!</div>
+<section class="hero">
+    <div class="hero-content">
+        <div class="tag">WELCOME TO THE WORLD OF GAMING</div>
 
-    <p class="note">
-        DEMO GAME - VIRTUAL CREDITS ONLY
+        <h1>ENTER THE<br>SPINVERSE</h1>
+
+        <p>
+        Discover an exciting collection of interactive
+        slot-style games with premium visuals,
+        smooth animations and virtual credits.
+        </p>
+
+        <a href="#games" class="hero-btn">
+        EXPLORE GAMES →
+        </a>
+    </div>
+
+    <div class="hero-art">🎰</div>
+</section>
+
+<section class="section" id="games">
+
+    <h2 class="section-title">
+        EXPLORE OUR GAMES
+    </h2>
+
+    <p class="section-desc">
+        Discover different gaming experiences
     </p>
 
-</div>
+    <div class="games">
 
-<script>
-let balance = 1000;
-let bet = 50;
-let spinning = false;
+        <div class="game-card">
+            <div class="game-icon">🎰</div>
+            <h3>Classic Reels</h3>
+            <p>Enjoy a classic slot-style experience.</p>
+            <a href="game.html" class="play-btn">
+                PLAY DEMO →
+            </a>
+        </div>
 
-const symbols = ["🍒", "🍋", "🍊", "⭐", "💎", "7️⃣"];
+        <div class="game-card">
+            <div class="game-icon">💎</div>
+            <h3>Lucky Gems</h3>
+            <p>Explore a colorful gem-themed experience.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
 
-function updateDisplay() {
-    document.getElementById("balance").textContent = balance;
-    document.getElementById("bet").textContent = bet;
-}
+        <div class="game-card">
+            <div class="game-icon">👑</div>
+            <h3>Royal Spin</h3>
+            <p>Discover a royal-inspired gaming theme.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
 
-function changeBet(amount) {
-    if (spinning) return;
+        <div class="game-card">
+            <div class="game-icon">⭐</div>
+            <h3>Golden Stars</h3>
+            <p>Experience a bright and exciting theme.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
 
-    bet = Math.max(10, Math.min(200, bet + amount));
-    updateDisplay();
-}
+    </div>
+</section>
 
-function spin() {
-    if (spinning) return;
+<section class="section" id="features">
 
-    if (balance < bet) {
-        document.getElementById("message").textContent =
-            "NOT ENOUGH VIRTUAL CREDITS!";
-        return;
-    }
+    <h2 class="section-title">
+        THE SPINVERSE EXPERIENCE
+    </h2>
 
-    spinning = true;
-    balance -= bet;
-    updateDisplay();
+    <p class="section-desc">
+        Built for entertainment and virtual play
+    </p>
 
-    document.getElementById("spinButton").disabled = true;
-    document.getElementById("message").textContent = "SPINNING...";
+    <div class="features">
 
-    let reels = [
-        document.getElementById("reel1"),
-        document.getElementById("reel2"),
-        document.getElementById("reel3")
-    ];
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h4>PRIVACY FOCUSED</h4>
+            <p>Simple demo experience</p>
+        </div>
 
-    let finalResults = reels.map(() =>
-        symbols[Math.floor(Math.random() * symbols.length)]
-    );
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h4>SMOOTH EXPERIENCE</h4>
+            <p>Responsive game interface</p>
+        </div>
 
-    let count = 0;
+        <div class="feature">
+            <div class="feature-icon">🎮</div>
+            <h4>VIRTUAL PLAY</h4>
+            <p>Entertainment with demo credits</p>
+        </div>
 
-    let animation = setInterval(() => {
-        reels.forEach(reel => {
-            reel.textContent =
-                symbols[Math.floor(Math.random() * symbols.length)];
-        });
+        <div class="feature">
+            <div class="feature-icon">💎</div>
+            <h4>PREMIUM DESIGN</h4>
+            <p>Modern gaming atmosphere</p>
+        </div>
 
-        count++;
+    </div>
 
-        if (count >= 15) {
-            clearInterval(animation);
+    <div class="notice" id="about">
+        SPINVERSE IS AN ENTERTAINMENT DEMO PLATFORM.<br>
+        ALL GAMES USE VIRTUAL CREDITS ONLY.
+        NO REAL-MONEY GAMBLING OR CASH PRIZES.
+    </div>
 
-            reels.forEach((reel, index) => {
-                reel.textContent = finalResults[index];
-            });
+</section>
 
-            checkWin(finalResults);
-        }
-    }, 100);
-}
-
-function checkWin(results) {
-    let message = "TRY AGAIN!";
-
-    if (results[0] === results[1] &&
-        results[1] === results[2]) {
-
-        balance += bet * 10;
-        message = "🎉 JACKPOT! 10X WIN!";
-    }
-    else if (
-        results[0] === results[1] ||
-        results[1] === results[2] ||
-        results[0] === results[2]
-    ) {
-        balance += bet * 2;
-        message = "✨ NICE! 2X WIN!";
-    }
-
-    document.getElementById("message").textContent = message;
-
-    updateDisplay();
-
-    spinning = false;
-    document.getElementById("spinButton").disabled = false;
-}
-</script>
+<footer>
+    <strong>♛ SPINVERSE</strong><br><br>
+    YOUR WORLD. YOUR GAME. YOUR EXPERIENCE.<br><br>
+    © 2026 SPINVERSE. ALL RIGHTS RESERVED.
+</footer>
 
 </body>
 </html>
