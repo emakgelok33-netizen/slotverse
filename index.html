@@ -1,0 +1,433 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPINVERSE | Premium Gaming</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080808;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    height: 78px;
+    background: #090909;
+    border-bottom: 1px solid #a87924;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    color: #ffd36b;
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #ffd36b;
+}
+
+.header-btn {
+    background: linear-gradient(135deg,#ffe38b,#c58a22);
+    border: none;
+    padding: 12px 23px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 410px;
+    padding: 65px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background:
+    radial-gradient(ellipse at 75% 50%,#61400e 0%,transparent 55%),
+    linear-gradient(120deg,#100d08,#080808);
+    border-bottom: 1px solid #a87924;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: #ffd36b;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px,7vw,75px);
+    line-height: 1.05;
+    color: #ffda7d;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    color: #bbb;
+    line-height: 1.8;
+    max-width: 480px;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: linear-gradient(135deg,#ffe38b,#bd8019);
+    padding: 16px 32px;
+    color: #171008;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.hero-art {
+    font-size: 150px;
+    filter: drop-shadow(0 0 35px #d69c35);
+}
+
+.section {
+    padding: 55px 5%;
+}
+
+.section-title {
+    text-align: center;
+    color: #ffda7d;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.section-desc {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+
+.game-card {
+    background: linear-gradient(145deg,#24211b,#0d0d0d);
+    border: 1px solid #76541d;
+    border-radius: 15px;
+    padding: 25px 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.game-card:hover {
+    transform: translateY(-7px);
+    border-color: #ffd36b;
+    box-shadow: 0 0 22px #d59b3530;
+}
+
+.game-icon {
+    font-size: 58px;
+    margin-bottom: 18px;
+}
+
+.game-card h3 {
+    color: #ffdc88;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: #999;
+    font-size: 12px;
+    min-height: 35px;
+    line-height: 1.5;
+}
+
+.play-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: linear-gradient(135deg,#ffe38b,#bd8019);
+    color: #15100a;
+    padding: 11px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    background: #12110e;
+    border: 1px solid #614619;
+    border-radius: 15px;
+    padding: 28px;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.feature h4 {
+    color: #ffda7d;
+    font-size: 13px;
+}
+
+.feature p {
+    color: #888;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.notice {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 35px;
+}
+
+footer {
+    border-top: 1px solid #65491b;
+    text-align: center;
+    padding: 28px 15px;
+    color: #777;
+    font-size: 12px;
+}
+
+footer strong {
+    color: #e7bd64;
+}
+
+@media(max-width:850px) {
+    nav {
+        display: none;
+    }
+
+    .games {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .hero-art {
+        font-size: 90px;
+    }
+}
+
+@media(max-width:500px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header-btn {
+        padding: 10px 13px;
+        font-size: 11px;
+    }
+
+    .hero {
+        text-align: center;
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+
+    .hero-art {
+        font-size: 90px;
+    }
+
+    .games {
+        grid-template-columns: 1fr;
+    }
+
+    .features {
+        grid-template-columns: repeat(2,1fr);
+        gap: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">♛ SPINVERSE</div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#games">Games</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <button class="header-btn"
+    onclick="location.href='game.html'">
+    PLAY DEMO
+    </button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="tag">WELCOME TO THE WORLD OF GAMING</div>
+
+        <h1>ENTER THE<br>SPINVERSE</h1>
+
+        <p>
+        Discover an exciting collection of interactive
+        slot-style games with premium visuals,
+        smooth animations and virtual credits.
+        </p>
+
+        <a href="#games" class="hero-btn">
+        EXPLORE GAMES →
+        </a>
+    </div>
+
+    <div class="hero-art">🎰</div>
+</section>
+
+<section class="section" id="games">
+
+    <h2 class="section-title">
+        EXPLORE OUR GAMES
+    </h2>
+
+    <p class="section-desc">
+        Discover different gaming experiences
+    </p>
+
+    <div class="games">
+
+        <div class="game-card">
+            <div class="game-icon">🎰</div>
+            <h3>Classic Reels</h3>
+            <p>Enjoy a classic slot-style experience.</p>
+            <a href="game.html" class="play-btn">
+                PLAY DEMO →
+            </a>
+        </div>
+
+        <div class="game-card">
+            <div class="game-icon">💎</div>
+            <h3>Lucky Gems</h3>
+            <p>Explore a colorful gem-themed experience.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
+
+        <div class="game-card">
+            <div class="game-icon">👑</div>
+            <h3>Royal Spin</h3>
+            <p>Discover a royal-inspired gaming theme.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
+
+        <div class="game-card">
+            <div class="game-icon">⭐</div>
+            <h3>Golden Stars</h3>
+            <p>Experience a bright and exciting theme.</p>
+            <a href="game.html" class="play-btn">
+                EXPLORE →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="features">
+
+    <h2 class="section-title">
+        THE SPINVERSE EXPERIENCE
+    </h2>
+
+    <p class="section-desc">
+        Built for entertainment and virtual play
+    </p>
+
+    <div class="features">
+
+        <div class="feature">
+            <div class="feature-icon">🛡️</div>
+            <h4>PRIVACY FOCUSED</h4>
+            <p>Simple demo experience</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <h4>SMOOTH EXPERIENCE</h4>
+            <p>Responsive game interface</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🎮</div>
+            <h4>VIRTUAL PLAY</h4>
+            <p>Entertainment with demo credits</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💎</div>
+            <h4>PREMIUM DESIGN</h4>
+            <p>Modern gaming atmosphere</p>
+        </div>
+
+    </div>
+
+    <div class="notice" id="about">
+        SPINVERSE IS AN ENTERTAINMENT DEMO PLATFORM.<br>
+        ALL GAMES USE VIRTUAL CREDITS ONLY.
+        NO REAL-MONEY GAMBLING OR CASH PRIZES.
+    </div>
+
+</section>
+
+<footer>
+    <strong>♛ SPINVERSE</strong><br><br>
+    YOUR WORLD. YOUR GAME. YOUR EXPERIENCE.<br><br>
+    © 2026 SPINVERSE. ALL RIGHTS RESERVED.
+</footer>
+
+</body>
+</html>
